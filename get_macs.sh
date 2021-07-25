@@ -1,1 +1,1 @@
-arp > arp_query.txt
+arp -n > arp_query.txt
