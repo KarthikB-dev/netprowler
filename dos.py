@@ -19,10 +19,12 @@ def spam_router(router_mac, router_ip):
     for i in range(10):
         send(e / IP() / t)
 
+def extract_mac():
+    with open('arp_query.txt') as fin:
+    # TODO read from arp_query.txt
 
 def main():
     spam_router()
-
 
 if __name__ == "__main__":
     main()
