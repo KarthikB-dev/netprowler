@@ -18,7 +18,8 @@ def spam_router(router_mac, router_ip):
         i = IP()
     i.dst = router_ip
     for i in range(10):
-        send(e / IP() / t)
+        # TODO let the user specify the interface they wish to use
+        sendp(e / IP() / t)
 
 
 # Finds MAC addresses in the text file
