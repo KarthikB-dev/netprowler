@@ -1,1 +1,2 @@
-arp -n > arp_query.txt
+arp -n > IP_ARP.txt
+arp > hostname_ARP.txt
