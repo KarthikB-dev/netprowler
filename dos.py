@@ -20,15 +20,21 @@ def spam_router(router_mac, router_ip):
     sendp(e / IP() / t, loop=1)
 
 
-# Finds MAC addresses in the text file
-def extract_mac():
+# Finds MAC and IP addresses in the text files
+def extract_mac_IP_pair():
     with open("arp_query.txt") as fin:
-        lines = fin.readlines()
-        # TODO extract MAC and IP addresses with regex
+        arp_lines = fin.readlines()
+    with open("hostname_ARP.txt") as fin:
+        hostname_lines = fin.readlines()
+    # gets the IP and MAC address tuple for a given hostname
+    hostname_to_IP_MAC = {}
+    # TODO extract MAC and IP addresses with regex
 
 
 def main():
-    spam_router()
+    # TODO use extract MAC IP pair function to find 
+    # addresses of networked computers
+    # spam_router()
 
 
 if __name__ == "__main__":
