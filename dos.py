@@ -29,10 +29,12 @@ def extract_mac_IP_pair():
     # gets the IP and MAC address tuple for a given hostname
     hostname_to_IP_MAC = {}
     # TODO extract MAC and IP addresses with regex
+    return hostname_to_IP_MAC
 
 
 def main():
-    # TODO use extract MAC IP pair function to find 
+    address_dict = extract_mac_IP_pair()
+    # TODO use extract MAC IP pair function to find
     # addresses of networked computers
     # spam_router()
 
