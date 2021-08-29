@@ -1,6 +1,8 @@
 from scapy.all import *
 import argparse
+
 # from icecream import ic
+
 # Generates packets to overwhelm your router
 
 # Determines if a given address is IPv4 or v6
@@ -34,9 +36,18 @@ def extract_mac_IP_pair():
         # ic(arp_line.split())
         split_arp_lines.append(arp_line.split())
     # gets the IP and MAC address tuple for a given hostname
+    # should get iface as well
     hostname_to_IP_MAC = {}
     # TODO extract MAC and IP addresses with regex
     return hostname_to_IP_MAC
+
+
+# If the length of the dictionary is more than 1,
+# then the destination of the SYN flood could be
+# a given devince on your LAN, and the source
+# could be spoofed as another computer
+def can_spoof(hostname_to_IP_MAC):
+    return len(hostname_to_IP_MAC) > 1
 
 
 def main():
